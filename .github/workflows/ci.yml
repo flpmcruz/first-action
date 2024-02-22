@@ -1,0 +1,12 @@
+name: "example"
+
+on: ["pull_request"]
+
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    steps:
+      - name:
+        uses: flpmcruz/first-action@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

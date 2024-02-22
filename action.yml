@@ -1,0 +1,10 @@
+name: "example"
+description: "Esta es una acción de ejemplo creada con Node.js"
+author: "Felipe"
+inputs:
+  GITHUB_TOKEN:
+    description: "GitHub token"
+    required: true
+runs:
+  using: "node20"
+  main: "index.js"
