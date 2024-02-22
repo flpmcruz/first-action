@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Hello world action step
         id: hello
-        uses: flpmireles/first-action@v1.2
+        uses: flpmcruz/first-action@v1.2
         with:
           who-to-greet: "Mona the Octocat"
 
