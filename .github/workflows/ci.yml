@@ -6,7 +6,15 @@ jobs:
   example:
     runs-on: ubuntu-latest
     steps:
-      - name:
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20" # O la versión adecuada
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Ejecutar mi acción
         uses: flpmcruz/first-action@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
