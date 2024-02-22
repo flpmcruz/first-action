@@ -1,8 +1,8 @@
-import * as core from "@actions/core";
+const core = require("@actions/core");
 
 try {
   // Obtener el valor de la entrada
-  const miInput = core.getInput("GITHUB_TOKEN");
+  const miInput = core.getInput("mi_input");
 
   // Hacer algo con la entrada
   console.log(`El valor de mi_input es: ${miInput}`);
