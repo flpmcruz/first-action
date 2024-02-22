@@ -1,15 +1,15 @@
 const core = require("@actions/core");
+const github = require("@actions/github");
 
 try {
-  // Obtener el valor de la entrada
-  const miInput = core.getInput("mi_input");
-
-  // Hacer algo con la entrada
-  console.log(`El valor de mi_input es: ${miInput}`);
-
-  // Establecer un resultado de salida
-  core.setOutput("mi_output", "Hola desde mi acción");
+  // `who-to-greet` input defined in action metadata file
+  const nameToGreet = core.getInput("who-to-greet");
+  console.log(`Hello ${nameToGreet}!`);
+  const time = new Date().toTimeString();
+  core.setOutput("time", time);
+  // Get the JSON webhook payload for the event that triggered the workflow
+  const payload = JSON.stringify(github.context.payload, undefined, 2);
+  console.log(`The event payload: ${payload}`);
 } catch (error) {
-  // Manejar errores
   core.setFailed(error.message);
 }
