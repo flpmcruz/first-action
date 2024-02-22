@@ -1,18 +1,15 @@
-name: "example"
-
-on: ["pull_request"]
+on: [pull_request]
 
 jobs:
-  example:
+  hello_world_job:
     runs-on: ubuntu-latest
+    name: A job to say hello
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Hello world action step
+        id: hello
+        uses: flpmireles/first-action@v1.2
         with:
-          node-version: "20"
-      - run: npm ci
+          who-to-greet: "Mona the Octocat"
 
-      - name: Ejecutar mi acción
-        uses: flpmcruz/first-action@v2
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
